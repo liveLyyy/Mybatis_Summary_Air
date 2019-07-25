@@ -16,4 +16,12 @@ public class AirportServiceImpl implements AirportService {
         List<Airport> list = airportMapper.findTakePort();
         return list;
     }
+
+    @Override
+    public List<Airport> showLandAirPort() {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        AirportMapper airportMapper = sqlSession.getMapper(AirportMapper.class);
+        List<Airport> list = airportMapper.findLandPort();
+        return list;
+    }
 }

@@ -16,8 +16,9 @@ public class ShowTakeServlet extends HttpServlet {
     AirportServiceImpl airportService=new AirportServiceImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         List<Airport> list=airportService.showTakeAirPort();
         req.setAttribute("takeport",list);
-        req.getRequestDispatcher("index.jsp").forward(req,resp);
+        req.getRequestDispatcher("showLandAirPort").forward(req,resp);
     }
 }
